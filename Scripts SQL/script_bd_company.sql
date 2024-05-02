@@ -88,3 +88,4 @@ create table dependent(
     primary key (Essn, Dependent_name),
     constraint fk_dependent foreign key (Essn) references employee(Ssn)
 );
+
