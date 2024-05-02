@@ -44,7 +44,6 @@ create table departament(
 
 -- 'def', 'company_constraints', 'departament_ibfk_1', 'company_constraints', 'departament', 'FOREIGN KEY', 'YES'
 
-alter table departament drop  departament_ibfk_1;
 alter table departament 
 		add constraint fk_dept foreign key(Mgr_ssn) references employee(Ssn)
         on update cascade;
@@ -52,11 +51,8 @@ alter table departament
 create table dept_locations(
 	Dnumber int not null,
 	Dlocation varchar(15) not null,
-    constraint pk_dept_locations primary key (Dnumber, Dlocation),
-    constraint fk_dept_locations foreign key (Dnumber) references departament (Dnumber)
+    constraint pk_dept_locations primary key (Dnumber, Dlocation)
 );
-
-alter table dept_locations drop fk_dept_locations;
 
 alter table dept_locations 
 	add constraint fk_dept_locations foreign key (Dnumber) references departament(Dnumber)
